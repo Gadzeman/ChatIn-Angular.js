@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
+import {NgForOf} from "@angular/common";
 
 
 const publicComponents = [
@@ -11,9 +12,10 @@ const publicComponents = [
   declarations: [
     ...publicComponents,
   ],
-  imports: [
-    RouterModule,
-  ],
+    imports: [
+        RouterModule,
+        NgForOf,
+    ],
   exports: [
     ...publicComponents,
   ],

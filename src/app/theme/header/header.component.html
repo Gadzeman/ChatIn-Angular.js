@@ -3,9 +3,7 @@
     <span></span>
   </div>
   <div class="{{isMenuActive ? 'menu menu__active' : 'menu'}}">
-    <span class="menu__item">Home</span>
-    <span class="menu__item">Chats</span>
-    <span class="menu__item">Settings</span>
+    <span *ngFor="let menuItem of menuItems" class="menu__item" routerLink="{{menuItem.router}}">{{menuItem.name}}</span>
   </div>
   <div class="navbar__item logo">
     LOGO
