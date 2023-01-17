@@ -10,6 +10,14 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
+      },
+      {
+        path: 'chats',
+        loadChildren: () => import('./chats-page/chats-page.module').then(m => m.ChatsPageModule),
+      },
+      {
+        path: 'settings',
+        loadChildren: () => import('./settings-page/settings-page.module').then(m => m.SettingsPageModule),
       }
     ]
   }
