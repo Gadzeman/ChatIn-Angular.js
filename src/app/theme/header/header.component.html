@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="navbar__item {{isMenuActive ? 'menu-burger menu-burger-active' : 'menu-burger'}}" (click)="menu()">
+    <span></span>
+  </div>
+  <div class="{{isMenuActive ? 'menu menu__active' : 'menu'}}">
+    <span class="menu__item">Home</span>
+    <span class="menu__item">Chats</span>
+    <span class="menu__item">Settings</span>
+  </div>
+  <div class="navbar__item logo">
+    LOGO
+  </div>
+  <div class="navbar__item profile">
+    <img class="profile__image" src="../../../assets/images/default-profile-image.svg" alt="default-profile-image" />
+  </div>
+</nav>
