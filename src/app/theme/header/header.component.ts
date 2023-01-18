@@ -19,6 +19,10 @@ export class HeaderComponent {
     {
       name: 'Settings',
       router: 'settings',
+    },
+    {
+      name: 'Users',
+      router: 'users',
     }
   ]
 
