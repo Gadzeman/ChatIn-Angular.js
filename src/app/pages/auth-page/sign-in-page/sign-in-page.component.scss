@@ -1,0 +1,21 @@
+@import "src/assets/styles/app.colors";
+
+.sign-up {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &__card {
+    margin-top: 100px;
+    width: 50%;
+    min-width: 200px;
+    max-width: 500px;
+    form {
+      display: flex;
+      flex-direction: column;
+      button {
+        background-color: $app-background;
+        color: white;
+      }
+    }
+  }
+}
