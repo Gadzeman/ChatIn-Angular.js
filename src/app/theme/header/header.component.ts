@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  public isMenuActive: boolean = false;
   public menuItems = [
     {
       name: 'Home',
@@ -17,16 +16,12 @@ export class HeaderComponent {
       router: 'chats',
     },
     {
+      name: 'Users',
+      router: 'users',
+    },
+    {
       name: 'Settings',
       router: 'settings',
     },
-    {
-      name: 'Users',
-      router: 'users',
-    }
   ]
-
-  menu() {
-    this.isMenuActive = !this.isMenuActive;
-  }
 }

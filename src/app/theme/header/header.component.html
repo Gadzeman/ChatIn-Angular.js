@@ -1,12 +1,9 @@
 <nav class="navbar">
-  <div class="navbar__item {{isMenuActive ? 'menu-burger menu-burger-active' : 'menu-burger'}}" (click)="menu()">
-    <span></span>
-  </div>
-  <div class="{{isMenuActive ? 'menu menu__active' : 'menu'}}">
-    <span *ngFor="let menuItem of menuItems" class="menu__item" routerLink="{{menuItem.router}}">{{menuItem.name}}</span>
-  </div>
-  <div class="navbar__item logo">
+  <div class="navbar__item logo" routerLink="home">
     LOGO
+  </div>
+  <div class="menu">
+    <span *ngFor="let menuItem of menuItems" class="menu__item" routerLink="{{menuItem.router}}">{{menuItem.name}}</span>
   </div>
   <div class="navbar__item profile">
     <img class="profile__image" src="../../../assets/images/default-profile-image.svg" alt="default-profile-image" />
