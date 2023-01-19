@@ -26,6 +26,11 @@ const routes: Routes = [
       {
         path: 'auth',
         loadChildren: () => import('./auth-page/auth-page.module').then(m => m.AuthPageModule),
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
       }
     ]
   }
