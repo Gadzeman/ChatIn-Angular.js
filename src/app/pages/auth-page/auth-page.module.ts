@@ -1,9 +1,13 @@
 import {NgModule} from "@angular/core";
-import {RegisterPageComponent} from "./register-page/register-page.component";
+import {SignUpPageComponent} from "./sign-up-page/sign-up-page.component";
 import {AuthPageRoutingModule} from "./auth-page-routing.module";
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [RegisterPageComponent],
-  imports: [AuthPageRoutingModule]
+  declarations: [SignUpPageComponent],
+  imports: [AuthPageRoutingModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule]
 })
 export class AuthPageModule {}
