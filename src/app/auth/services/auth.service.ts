@@ -36,7 +36,6 @@ export class AuthService {
   public isSignedUp(): boolean {
     try {
       const token = localStorage.getItem('token');
-      console.log('token: ', token);
 
       if (this.jwtHelperService.isTokenExpired(token)) {
         const { userId } = this.jwtHelperService.decodeToken(token);
