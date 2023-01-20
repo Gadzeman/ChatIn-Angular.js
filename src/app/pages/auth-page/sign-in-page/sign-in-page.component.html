@@ -4,13 +4,15 @@
       <form>
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input matInput />
+          <input matInput name="email" type="text" [formControl]="email" (keyup)="handleDisableButton($event)" />
+          <mat-error *ngIf="email.invalid">Email in not valid</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input matInput />
+          <input matInput name="password" type="password" [formControl]="password" (keyup)="handleDisableButton($event)" />
+          <mat-error *ngIf="password.invalid">Password is required</mat-error>
         </mat-form-field>
-        <button mat-raised-button (click)="test($event)">Sign in</button>
+        <button mat-raised-button (click)="signIn()">Sign in</button>
       </form>
     </mat-card-content>
   </mat-card>

@@ -1,4 +1,8 @@
 import {Component} from "@angular/core";
+import {AuthService} from "../../../auth/services/auth.service";
+import {FormControl, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-sign-in-page',
@@ -6,8 +10,29 @@ import {Component} from "@angular/core";
   styleUrls: ['./sign-in-page.component.scss']
 })
 export class SignInPageComponent {
-  test(event: Event) {
-    event.preventDefault();
-    console.log('test')
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
+
+  public disableButton: boolean = true;
+  public email: FormControl<string> = new FormControl('', [Validators.required, Validators.email]);
+  public password: FormControl<string> = new FormControl('', [Validators.required]);
+
+  signIn() {
+    this.authService.signIn({ email: this.email.value, password: this.password.value }).subscribe({
+      next: async (result) => {
+        localStorage.setItem('token', result.accessToken);
+
+        await this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.log(error)
+      },
+    });
+  }
+
+  handleDisableButton(e: Event) {
+    this.disableButton = this.email.invalid || this.password.invalid;
   }
 }

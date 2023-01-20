@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
+import {JwtHelperService, JwtModule} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,11 @@ import { AppRoutingModule } from "./app-routing.module";
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => localStorage.getItem('token')
+      }
+    })
   ],
   bootstrap: [AppComponent]
 })
