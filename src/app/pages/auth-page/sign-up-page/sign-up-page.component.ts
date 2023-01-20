@@ -1,4 +1,8 @@
 import {Component} from "@angular/core";
+import {FormControl, Validators} from "@angular/forms";
+
+import {AuthService} from "../../../auth/services/auth.service";
+import {UserRoles} from "../../../users/types/users.types";
 
 @Component({
   selector: 'app-sign-up-page',
@@ -6,8 +10,34 @@ import {Component} from "@angular/core";
   styleUrls: ['./sign-up-page.component.scss']
 })
 export class SignUpPageComponent{
-  test(event: Event) {
-    event.preventDefault();
-    console.log('test')
+  constructor(
+    private authService: AuthService,
+  ) {}
+
+  public disableButton: boolean = true;
+  private email: string = 'test-email@gmail.com';
+  public name: FormControl<string> = new FormControl('', [Validators.required]);
+  public password: FormControl<string> = new FormControl('', [Validators.required]);
+  public repeatPassword: FormControl<string> = new FormControl('', [Validators.required]);
+  private role: UserRoles = UserRoles.user;
+
+  signUp() {
+    if (this.repeatPassword.value !== this.password.value) {
+      this.repeatPassword.setErrors({ 'invalid': true });
+      return;
+    }
+    this.authService.signUp({
+      id: null,
+      email: this.email,
+      name: this.name.value,
+      password: this.password.value,
+      role: this.role,
+    }).subscribe(result => {
+      console.log(result);
+    })
+  }
+
+  handleDisableButton(e: Event) {
+    this.disableButton = this.name.invalid || this.password.invalid || this.repeatPassword.invalid;
   }
 }

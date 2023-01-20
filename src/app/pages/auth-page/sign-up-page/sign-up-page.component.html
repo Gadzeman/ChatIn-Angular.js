@@ -4,17 +4,25 @@
       <form>
         <mat-form-field>
           <mat-label>Enter your name</mat-label>
-          <input matInput />
+          <input matInput name="name" type="text" [formControl]="name" (keyup)="handleDisableButton($event)" />
+          <mat-error *ngIf="name.invalid">Name is required</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Create password</mat-label>
-          <input matInput />
+          <mat-label>Password</mat-label>
+          <input matInput name="password" type="password" [formControl]="password" (keyup)="handleDisableButton($event)" />
+          <mat-error *ngIf="password.invalid">Password is required</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Repeat password</mat-label>
-          <input matInput />
+          <input matInput name="repeatPassword" type="password" [formControl]="repeatPassword" (keyup)="handleDisableButton($event)" />
+          <mat-error *ngIf="repeatPassword.invalid">Password is not valid</mat-error>
         </mat-form-field>
-        <button mat-raised-button (click)="test($event)">Sign up</button>
+        <!-- <mat-radio-group [formControl]="role">
+          <mat-radio-button color="primary" value="user">User</mat-radio-button>
+          <br>
+          <mat-radio-button color="primary" value="manager">Manager</mat-radio-button>
+        </mat-radio-group> -->
+        <button mat-raised-button style="opacity: {{disableButton ? '0.5' : '1'}}" [disabled]="disableButton" (click)="signUp()">Sign up</button>
       </form>
     </mat-card-content>
   </mat-card>
