@@ -24,15 +24,19 @@ const routes: Routes = [
         loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule),
       },
       {
-        path: 'auth',
-        loadChildren: () => import('./auth-page/auth-page.module').then(m => m.AuthPageModule),
-      },
-      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',
       }
     ]
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth-page/auth-page.module').then(m => m.AuthPageModule),
+  },
+  {
+    path: '**',
+    redirectTo: '',
   }
 ]
 @NgModule({
