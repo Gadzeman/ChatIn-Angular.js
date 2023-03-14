@@ -1,1 +1,9 @@
-<h1>HOME</h1>
+<div>
+  <div class="chat">
+
+  </div>
+  <form>
+    <input type="text" [(ngModel)]="message" name="message">
+    <input type="submit" (click)="createMessage($event)">
+  </form>
+</div>

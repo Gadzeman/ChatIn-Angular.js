@@ -19,20 +19,20 @@ export class SignInPageComponent {
   public email: FormControl<string> = new FormControl('', [Validators.required, Validators.email]);
   public password: FormControl<string> = new FormControl('', [Validators.required]);
 
-  signIn() {
+  public signIn() {
     this.authService.signIn({ email: this.email.value, password: this.password.value }).subscribe({
       next: async (result) => {
         localStorage.setItem('token', result.accessToken);
 
         await this.router.navigate(['/']);
       },
-      error: (error) => {
+      error: error => {
         console.log(error)
       },
     });
   }
 
-  handleDisableButton(e: Event) {
+  public handleDisableButton(e: Event) {
     this.disableButton = this.email.invalid || this.password.invalid;
   }
 }

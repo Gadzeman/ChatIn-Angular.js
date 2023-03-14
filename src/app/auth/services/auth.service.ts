@@ -16,10 +16,10 @@ export class AuthService {
     private router: Router,
   ) {}
 
-  private BASE_URL = 'http://localhost:3000/';
-  private signUpEndpoint = 'auth/sign-up';
-  private signInEndpoint = 'auth/sign-in';
-  private refreshTokenEndpoint = 'auth/refresh-token';
+  private BASE_URL = 'http://localhost:3000/' + 'auth/';
+  private signUpEndpoint = 'sign-up';
+  private signInEndpoint = 'sign-in';
+  private refreshTokenEndpoint = 'refresh-token';
 
   signUp(body: User): Observable<User> {
     return this.httpClient.post<User>(`${this.BASE_URL}${this.signUpEndpoint}`, body);
