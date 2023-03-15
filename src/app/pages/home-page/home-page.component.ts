@@ -1,17 +1,24 @@
-import { Component } from '@angular/core';
-import { ChatService } from "../../chat/services/chat.service";
+import {Component, OnInit} from '@angular/core';
+import { MessageService } from "../../chat/services/message.service";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
   constructor(
-    private chatService: ChatService,
+    private chatService: MessageService,
   ) {}
 
   public message: string = '';
+
+  ngOnInit() {
+    this.chatService.startWatch();
+    this.chatService.$message.subscribe(message => {
+      console.log('message', message);
+    })
+  }
 
   public createMessage(e: Event) {
     e.preventDefault();
