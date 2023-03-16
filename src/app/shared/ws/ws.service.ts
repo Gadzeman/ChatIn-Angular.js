@@ -28,7 +28,7 @@ export class WsService<T> {
       })
     }
     if (this.isConnected$$.getValue()) {
-      null;
+      this.registerEventSubscription(eventName, data, registered);
     } else {
       this.connect();
     }
@@ -77,10 +77,15 @@ export class WsService<T> {
               skipWhile(res => res),
             )
         )
-      ).subscribe(() => {
+      ).subscribe(async () => {
+        try {
+          await this.registerEventSubscriptions();
+        } catch (e) {
+          return;
+        }
         this.isConnected$$.next(true);
         this.isConnecting = false;
-    })
+      })
   }
 
   stopListen(eventName: string) {
@@ -92,6 +97,26 @@ export class WsService<T> {
     if (this.subscriptions.size === 0 && this.wsSubj) {
       this.wsSubj.complete();
       this.stopListen$$.next(null);
+    }
+  }
+
+  private registerEventSubscription(
+    eventName: string,
+    data: { [key: string]: any } = {},
+    registered: Observer<true> = null,
+  ) {
+    this.wsSubj.next({ event: eventName, data });
+    if (registered) {
+      registered.next(true);
+      registered.complete();
+    }
+  }
+
+  private async registerEventSubscriptions() {
+    for (const [key, value] of this.subscriptions.entries()) {
+      const subscribed = new Subject<boolean>();
+      this.registerEventSubscription(key, value.data, subscribed);
+      await subscribed.toPromise();
     }
   }
 }

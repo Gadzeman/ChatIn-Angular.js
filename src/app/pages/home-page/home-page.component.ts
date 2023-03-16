@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import { MessageService } from "../../chat/services/message.service";
+import {Message} from "../../chat/types/message.type";
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
   constructor(
@@ -12,11 +13,12 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   public message: string = '';
+  public messages: Message[] = [];
 
   ngOnInit() {
     this.chatService.startWatch();
     this.chatService.$message.subscribe(message => {
-      console.log('message', message);
+      this.messages.push(message);
     })
   }
 
