@@ -1,10 +1,10 @@
 <div class="chat">
-  <div class="chat__messages">
+  <div class="chat__messages" id="chat_messages">
     <p *ngFor="let message of messages">{{ message.text }}</p>
   </div>
   <div class="chat__input">
     <form>
-      <input type="text" [(ngModel)]="message" name="message">
+      <input type="text" [(ngModel)]="message" name="message" placeholder="type message...">
       <input type="submit" (click)="createMessage($event)">
     </form>
   </div>

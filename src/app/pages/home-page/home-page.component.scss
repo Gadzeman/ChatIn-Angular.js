@@ -1,11 +1,9 @@
 .chat {
   width: 200px;
   height: 500px;
-  padding: 1px;
-  background: black;
   &__messages {
     height: 100%;
-    background: white;
+    overflow: auto;
   }
   &__input {
   }

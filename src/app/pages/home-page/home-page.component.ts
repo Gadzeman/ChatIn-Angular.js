@@ -31,6 +31,8 @@ export class HomePageComponent implements OnInit {
     }).subscribe({
       next: () => {
         this.message = '';
+        const chatEl = document.getElementById('chat_messages');
+        chatEl.scrollTop = chatEl.scrollHeight;
       },
       error: error => {
         console.log(error)
