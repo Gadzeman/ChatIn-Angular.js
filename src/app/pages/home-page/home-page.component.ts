@@ -17,12 +17,10 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit() {
     this.chatService.startWatch();
-    this.chatService.$message.subscribe(message => {
-      this.messages.push(message);
-    });
-    this.chatService.getMessages().subscribe(messages => {
+    this.chatService.$messages.subscribe(messages => {
       this.messages = messages;
     })
+    this.messages = this.chatService.getMessages();
   }
 
   public createMessage(e: Event) {

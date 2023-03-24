@@ -13,8 +13,10 @@ export class MessageService {
     private wsService: WsService<Message>,
   ) {}
 
-  private readonly $$message = new Subject<Message>();
-  public readonly $message = this.$$message.asObservable();
+  private messages: Message[] = [];
+
+  private readonly $$messages = new Subject<Message[]>();
+  public readonly $messages = this.$$messages.asObservable();
 
   private BASE_URL = 'http://localhost:3000/' + 'message/';
   private eventName: string = 'message-event';
@@ -26,12 +28,31 @@ export class MessageService {
       this.wsService
         .listen<Message>(this.eventName)
         .subscribe((message: Message) => {
-          this.$$message.next(message);
+          this.messages.push(message);
+          this.$$messages.next(
+            this.messages.sort(
+              (a, b) =>
+                new Date(a.datetime).getTime() - new Date(b.datetime).getTime()
+            )
+          );
         })
+      this.fetchMessages().subscribe(messages => {
+        this.messages = messages;
+        this.$$messages.next(
+          this.messages.sort(
+            (a, b) =>
+              new Date(a.datetime).getTime() - new Date(b.datetime).getTime()
+          )
+        );
+      })
     }
   }
 
-  public getMessages(): Observable<Message[]> {
+  public getMessages(): Message[] {
+    return this.messages;
+  }
+
+  private fetchMessages(): Observable<Message[]> {
     return this.httpClient.get<Message[]>(`${this.BASE_URL}`);
   }
 
