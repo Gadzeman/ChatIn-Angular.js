@@ -19,6 +19,9 @@ export class HomePageComponent implements OnInit {
     this.chatService.startWatch();
     this.chatService.$message.subscribe(message => {
       this.messages.push(message);
+    });
+    this.chatService.getMessages().subscribe(messages => {
+      this.messages = messages;
     })
   }
 

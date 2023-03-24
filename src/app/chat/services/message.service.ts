@@ -31,6 +31,10 @@ export class MessageService {
     }
   }
 
+  public getMessages(): Observable<Message[]> {
+    return this.httpClient.get<Message[]>(`${this.BASE_URL}`);
+  }
+
   public createMessage(body: Message): Observable<Message> {
     return this.httpClient.post<Message>(`${this.BASE_URL}`, body)
   }
