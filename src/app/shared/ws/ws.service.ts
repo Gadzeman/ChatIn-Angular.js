@@ -1,6 +1,7 @@
 import {BehaviorSubject, Observable, Observer, skip, skipWhile, Subject, takeUntil, timer} from "rxjs";
 import {WebSocketSubject} from "rxjs/internal/observable/dom/WebSocketSubject";
 import {Injectable} from "@angular/core";
+import {environment} from "../../../environments/environment.dev";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class WsService<T> {
     }
     const hasError = new Subject();
     this.isConnecting = true;
-    this.wsSubj = new WebSocketSubject('ws://localhost:3001');
+    this.wsSubj = new WebSocketSubject(environment.ws);
     this.wsSubj.subscribe({
       next: (message: {
         event: string,

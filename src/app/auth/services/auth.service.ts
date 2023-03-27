@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {AuthSignInBody, RefreshTokenBody} from "../types/auth.types";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
+import {environment} from "../../../environments/environment.dev";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
     private router: Router,
   ) {}
 
-  private BASE_URL = 'http://localhost:3000/' + 'auth/';
+  private BASE_URL = environment.api + 'auth/';
   private signUpEndpoint = 'sign-up';
   private signInEndpoint = 'sign-in';
   private refreshTokenEndpoint = 'refresh-token';

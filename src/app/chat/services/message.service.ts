@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
 import {Message} from "../types/message.type";
 import {WsService} from "../../shared/ws/ws.service";
+import {environment} from "../../../environments/environment.dev";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class MessageService {
   private readonly $$messages = new Subject<Message[]>();
   public readonly $messages = this.$$messages.asObservable();
 
-  private BASE_URL = 'http://localhost:3000/' + 'message/';
+  private BASE_URL = environment.api + 'message/';
   private eventName: string = 'message-event';
   private isWatching: boolean = false;
 
