@@ -1,6 +1,6 @@
 export const environment = {
-  api: 'http://13.53.97.68:3000/',
-  ws: 'ws://13.53.97.68:3001',
+  api: 'http://10.0.2.69:3000/',
+  ws: 'ws://10.0.2.69:3001',
 
   production: true,
 }

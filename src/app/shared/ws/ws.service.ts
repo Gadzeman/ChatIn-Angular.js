@@ -1,7 +1,7 @@
 import {BehaviorSubject, Observable, Observer, skip, skipWhile, Subject, takeUntil, timer} from "rxjs";
 import {WebSocketSubject} from "rxjs/internal/observable/dom/WebSocketSubject";
 import {Injectable} from "@angular/core";
-import {environment} from "../../../environments/environment.dev";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'

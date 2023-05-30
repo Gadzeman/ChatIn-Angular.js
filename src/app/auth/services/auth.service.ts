@@ -5,7 +5,7 @@ import {Observable} from "rxjs";
 import {AuthSignInBody, RefreshTokenBody} from "../types/auth.types";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
-import {environment} from "../../../environments/environment.dev";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
