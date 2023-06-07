@@ -35,30 +35,27 @@ export class AuthService {
   }
 
   public isSignedUp(): boolean {
-    try {
-      const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
-      if (this.jwtHelperService.isTokenExpired(token)) {
-        const { userId } = this.jwtHelperService.decodeToken(token);
+    const isTokenExpired = this.jwtHelperService.isTokenExpired(token)
 
-        this.refreshToken({ userId }).subscribe({
-          next: (result) => {
-            localStorage.removeItem('token');
-            localStorage.setItem('token', result.accessToken);
-            return true;
-          },
-          error: (error) => {
-            localStorage.removeItem('token');
-            this.router.navigate(['auth/sign-in']);
-            return false;
-          }
-        });
-      }
+    if (isTokenExpired) {
+      const {userId} = this.jwtHelperService.decodeToken(token);
+
+      this.refreshToken({userId}).subscribe({
+        next: (result) => {
+          localStorage.removeItem('token');
+          localStorage.setItem('token', result.accessToken);
+          return true;
+        },
+        error: (error) => {
+          localStorage.removeItem('token');
+          this.router.navigate(['auth/sign-in']);
+          return false;
+        }
+      });
+    } else {
       return true;
-    } catch (e) {
-      this.router.navigate(['auth/sign-in']);
-
-      return false;
     }
   }
 }

@@ -7,27 +7,26 @@ const routes: Routes = [
   {
     path: '',
     component: BasePageComponent,
-    canActivate: [AuthGuardService],
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
         canActivate: [AuthGuardService],
+        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
       },
       {
         path: 'chats',
-        loadChildren: () => import('./chats-page/chats-page.module').then(m => m.ChatsPageModule),
         canActivate: [AuthGuardService],
+        loadChildren: () => import('./chats-page/chats-page.module').then(m => m.ChatsPageModule),
       },
       {
         path: 'settings',
-        loadChildren: () => import('./settings-page/settings-page.module').then(m => m.SettingsPageModule),
         canActivate: [AuthGuardService],
+        loadChildren: () => import('./settings-page/settings-page.module').then(m => m.SettingsPageModule),
       },
       {
         path: 'users',
-        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule),
         canActivate: [AuthGuardService],
+        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule),
       },
       {
         path: '',
