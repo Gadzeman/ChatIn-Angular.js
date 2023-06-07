@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {FormControl, Validators} from "@angular/forms";
 
 import {AuthService} from "../../../shared/services/auth/auth.service";
-import {UserRoles} from "../../../shared/services/users/types/users.types";
+import {UserRoles} from "../../../shared/classes/user/user-roles.enum";
 
 @Component({
   selector: 'app-sign-up-page',

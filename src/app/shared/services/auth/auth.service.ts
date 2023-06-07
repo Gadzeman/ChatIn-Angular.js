@@ -1,11 +1,12 @@
 import {Injectable} from "@angular/core";
-import {User} from "../users/types/users.types";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {AuthSignInBody, RefreshTokenBody} from "./types/auth.types";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
 import {environment} from "../../../../environments/environment";
+import {AuthSignInBody} from "../../classes/auth/auth-sign-in.interface";
+import {AuthRefreshTokenBody} from "../../classes/auth/auth-refresh-token.interface";
+import {User} from "../../classes/user/user.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class AuthService {
     return this.httpClient.post<any>(`${this.BASE_URL}${this.signInEndpoint}`, body);
   }
 
-  refreshToken(body: RefreshTokenBody) {
+  refreshToken(body: AuthRefreshTokenBody) {
     return this.httpClient.put<any>(`${this.BASE_URL}${this.refreshTokenEndpoint}`, body);
   }
 

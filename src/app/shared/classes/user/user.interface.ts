@@ -1,9 +1,6 @@
-export enum UserRoles {
-  admin = "admin",
-  user = "user",
-}
+import {UserRoles} from "./user-roles.enum";
 
-export class User {
+export interface User {
   id: number;
   name: string;
   email: string;

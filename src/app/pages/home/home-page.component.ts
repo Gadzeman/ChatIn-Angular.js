@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { MessageService } from "../../shared/services/chat/services/message.service";
-import {Message} from "../../shared/services/chat/types/message.type";
+import { MessageService } from "../../shared/services/chat/message.service";
+import {Message} from "../../shared/classes/chat/message.interface";
 
 @Component({
   selector: 'app-home',

@@ -1,9 +1,9 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable, Subject} from "rxjs";
-import {Message} from "../types/message.type";
-import {WsService} from "../../ws/ws.service";
-import {environment} from "../../../../../environments/environment";
+import {WsService} from "../ws/ws.service";
+import {environment} from "../../../../environments/environment";
+import {Message} from "../../classes/chat/message.interface";
 
 @Injectable({
   providedIn: 'root'
