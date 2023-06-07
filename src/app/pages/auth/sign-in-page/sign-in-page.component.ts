@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {AuthService} from "../../../auth/services/auth.service";
+import {AuthService} from "../../../shared/services/auth/auth.service";
 import {FormControl, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {JwtHelperService} from "@auth0/angular-jwt";

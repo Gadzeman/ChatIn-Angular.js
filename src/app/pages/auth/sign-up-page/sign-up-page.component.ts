@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {FormControl, Validators} from "@angular/forms";
 
-import {AuthService} from "../../../auth/services/auth.service";
-import {UserRoles} from "../../../users/types/users.types";
+import {AuthService} from "../../../shared/services/auth/auth.service";
+import {UserRoles} from "../../../shared/services/users/types/users.types";
 
 @Component({
   selector: 'app-sign-up-page',

@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
-import {User} from "../../users/types/users.types";
+import {User} from "../users/types/users.types";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {AuthSignInBody, RefreshTokenBody} from "../types/auth.types";
+import {AuthSignInBody, RefreshTokenBody} from "./types/auth.types";
 import {JwtHelperService} from "@auth0/angular-jwt";
 import {Router} from "@angular/router";
-import {environment} from "../../../environments/environment";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class AuthService {
     return this.httpClient.put<any>(`${this.BASE_URL}${this.refreshTokenEndpoint}`, body);
   }
 
-  public async isSignedUp(): Promise<boolean> {
+  public async isSignedIn(): Promise<boolean> {
     const token = localStorage.getItem('token');
 
     const isTokenExpired = this.jwtHelperService.isTokenExpired(token)

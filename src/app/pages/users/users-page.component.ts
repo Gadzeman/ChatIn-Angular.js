@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../../users/types/users.types";
-import {UsersService} from "../../users/services/users.service";
+import {User} from "../../shared/services/users/types/users.types";
+import {UsersService} from "../../shared/services/users/services/users.service";
 
 @Component({
-  selector: 'app-users-page',
+  selector: 'app-users',
   templateUrl: './users-page.component.html',
   styleUrls: ['./users-page.component.css']
 })

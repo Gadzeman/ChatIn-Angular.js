@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from "@angular/router";
 import {NgModule} from "@angular/core";
-import {BasePageComponent} from "./base-page/base-page.component";
-import {AuthGuardService} from "../auth/services/auth-guard.service";
+import {BasePageComponent} from "./base/base-page.component";
+import {AuthGuard} from "../shared/guards/auth/auth.guard";
 
 const routes: Routes = [
   {
@@ -10,23 +10,23 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        canActivate: [AuthGuardService],
-        loadChildren: () => import('./home-page/home-page.module').then(m => m.HomePageModule),
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./home/home-page.module').then(m => m.HomePageModule),
       },
       {
         path: 'chats',
-        canActivate: [AuthGuardService],
-        loadChildren: () => import('./chats-page/chats-page.module').then(m => m.ChatsPageModule),
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./chats/chats-page.module').then(m => m.ChatsPageModule),
       },
       {
         path: 'settings',
-        canActivate: [AuthGuardService],
-        loadChildren: () => import('./settings-page/settings-page.module').then(m => m.SettingsPageModule),
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./settings/settings-page.module').then(m => m.SettingsPageModule),
       },
       {
         path: 'users',
-        canActivate: [AuthGuardService],
-        loadChildren: () => import('./users-page/users-page.module').then(m => m.UsersPageModule),
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./users/users-page.module').then(m => m.UsersPageModule),
       },
       {
         path: '',
@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: () => import('./auth-page/auth-page.module').then(m => m.AuthPageModule),
+    loadChildren: () => import('./auth/auth-page.module').then(m => m.AuthPageModule),
   },
   {
     path: '**',
