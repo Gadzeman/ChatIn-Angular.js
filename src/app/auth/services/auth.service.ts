@@ -34,7 +34,7 @@ export class AuthService {
     return this.httpClient.put<any>(`${this.BASE_URL}${this.refreshTokenEndpoint}`, body);
   }
 
-  public isSignedUp(): boolean {
+  public async isSignedUp(): Promise<boolean> {
     const token = localStorage.getItem('token');
 
     const isTokenExpired = this.jwtHelperService.isTokenExpired(token)
@@ -42,18 +42,16 @@ export class AuthService {
     if (isTokenExpired) {
       const {userId} = this.jwtHelperService.decodeToken(token);
 
-      this.refreshToken({userId}).subscribe({
-        next: (result) => {
-          localStorage.removeItem('token');
-          localStorage.setItem('token', result.accessToken);
-          return true;
-        },
-        error: (error) => {
-          localStorage.removeItem('token');
-          this.router.navigate(['auth/sign-in']);
-          return false;
-        }
-      });
+      try {
+        const result = await this.refreshToken({userId}).toPromise();
+        localStorage.removeItem('token');
+        localStorage.setItem('token', result.accessToken);
+        return true
+      } catch (e) {
+        localStorage.removeItem('token');
+        this.router.navigate(['auth/sign-in']);
+        return false
+      }
     } else {
       return true;
     }
