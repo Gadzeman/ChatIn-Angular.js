@@ -1,5 +1,8 @@
+@import "../../../assets/styles/app-colors";
+
 .chats {
   &__list {
+    padding-top: 10px;
     color: white;
     background: #2b2d31;
     height: 100vh;
@@ -10,6 +13,10 @@
     right: 25%;
     z-index: 1;
     transition: 0.3s;
+    &__add {
+    }
+    &__chat {
+    }
   }
   &__list-active {
     right: 0;
