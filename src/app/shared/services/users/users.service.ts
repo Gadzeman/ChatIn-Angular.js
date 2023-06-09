@@ -14,7 +14,7 @@ export class UsersService {
     private apiService: ApiService
   ) {}
 
-  private BASE_URL = environment.api + 'users/';
+  private BASE_URL = environment.api + 'user/';
 
   public getUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>(`${this.BASE_URL}`);
