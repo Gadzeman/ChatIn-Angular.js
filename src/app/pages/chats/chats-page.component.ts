@@ -6,19 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chats-page.component.scss'],
 })
 export class ChatsPageComponent implements OnInit {
-  public chatsListActive: boolean = false;
-
   ngOnInit(): void {
     this.initData();
   }
 
-  private initData() {
-    this.displayChatsList();
-  }
-
-  private displayChatsList() {
-    setTimeout(() => {
-      this.chatsListActive = true;
-    });
-  }
+  private initData() {}
 }
