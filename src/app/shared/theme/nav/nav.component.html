@@ -4,6 +4,7 @@
       *ngFor="let menuItem of menuItems"
       class="nav__menu__item"
       routerLink="{{ menuItem.router }}"
+      routerLinkActive="active"
       >{{ menuItem.name }}</span
     >
   </div>
