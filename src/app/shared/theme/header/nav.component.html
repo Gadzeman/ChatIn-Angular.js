@@ -1,0 +1,10 @@
+<nav class="nav">
+  <div class="nav__menu">
+    <span
+      *ngFor="let menuItem of menuItems"
+      class="nav__menu__item"
+      routerLink="{{ menuItem.router }}"
+      >{{ menuItem.name }}</span
+    >
+  </div>
+</nav>

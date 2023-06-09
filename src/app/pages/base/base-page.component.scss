@@ -1,5 +1,9 @@
-.content {
-  width: 70%;
-  margin: auto;
-  margin-top: 20px;
+.app {
+  display: flex;
+  &__header {
+    height: 100vh;
+  }
+  &__content {
+
+  }
 }

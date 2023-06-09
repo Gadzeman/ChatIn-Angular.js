@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HeaderComponent } from "./header/header.component";
+import { NavComponent } from "./header/nav.component";
 import {NgForOf} from "@angular/common";
 
 
 const publicComponents = [
-  HeaderComponent,
+  NavComponent,
 ];
 
 @NgModule({

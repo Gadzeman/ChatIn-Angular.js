@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.scss']
 })
-export class HeaderComponent {
+export class NavComponent {
   public menuItems = [
     {
       name: 'Home',
