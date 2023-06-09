@@ -8,9 +8,20 @@
     min-width: 100px;
     color: white;
     background: #2b2d31;
-    &__add {
-    }
-    &__chat {
+    &__buttons {
+      display: flex;
+      align-items: center;
+      &__add {
+      }
+      &__input {
+        height: 22px;
+        width: 69%;
+        background: rgba(107, 107, 107, 0.68);
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
     }
   }
 }
