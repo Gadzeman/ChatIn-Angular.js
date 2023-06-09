@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
   public menuItems = [
@@ -23,5 +23,5 @@ export class NavComponent {
       name: 'Settings',
       router: 'settings',
     },
-  ]
+  ];
 }
