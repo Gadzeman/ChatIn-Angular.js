@@ -17,10 +17,10 @@ export class ChatsPageComponent implements OnInit {
   private initData() {}
 
   public createChat() {
-    const dialogRef = this.dialog.open(CreateChatComponent, {});
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+    const dialogRef = this.dialog.open(CreateChatComponent, {
+      panelClass: 'create-chat',
     });
+
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
