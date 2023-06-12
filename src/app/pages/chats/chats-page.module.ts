@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CreateChatComponent } from './components/create-chat/create-chat.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 @NgModule({
   declarations: [ChatsPageComponent, CreateChatComponent],
@@ -19,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatInputModule,
     MatTooltipModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    NgIf,
   ],
 })
 export class ChatsPageModule {}

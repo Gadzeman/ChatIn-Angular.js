@@ -8,7 +8,7 @@ import {User} from "../../classes/user/user.interface";
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
   constructor(
     private httpClient: HttpClient,
     private apiService: ApiService

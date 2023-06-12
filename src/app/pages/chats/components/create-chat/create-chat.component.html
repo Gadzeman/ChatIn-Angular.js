@@ -1,10 +1,11 @@
 <div mat-dialog-content>
   <p>Chat name</p>
   <mat-form-field>
-    <input matInput />
+    <input matInput [formControl]="chatName" />
+    <mat-error *ngIf="chatName.invalid">Chat name is required</mat-error>
   </mat-form-field>
 </div>
 <div mat-dialog-actions style="float: right">
   <button mat-button>Cancel</button>
-  <button mat-button cdkFocusInitial>Next</button>
+  <button mat-button cdkFocusInitial (click)="createChat()">Create</button>
 </div>
