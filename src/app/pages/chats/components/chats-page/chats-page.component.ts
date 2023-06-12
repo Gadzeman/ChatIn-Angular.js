@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateChatComponent } from './components/create-chat/create-chat.component';
+import { CreateChatComponent } from '../create-chat/create-chat.component';
 
 @Component({
   selector: 'app-chats',
