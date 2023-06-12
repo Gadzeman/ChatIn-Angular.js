@@ -1,8 +1,10 @@
-<div>
+<div mat-dialog-content>
   <p>Chat name</p>
-  <input type="text" />
-  <div>
-    <button>Cancel</button>
-    <button>Next</button>
-  </div>
+  <mat-form-field>
+    <input matInput />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="float: right">
+  <button mat-button>Cancel</button>
+  <button mat-button cdkFocusInitial>Next</button>
 </div>
