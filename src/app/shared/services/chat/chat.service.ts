@@ -13,10 +13,6 @@ export class ChatService {
 
   private BASE_URL = environment.api + 'chat/';
 
-  public startWatch() {
-    this.wsService.connect();
-  }
-
   public createChat(body: Partial<Chat>): Observable<Chat> {
     return this.http.post<Chat>(`${this.BASE_URL}`, body);
   }

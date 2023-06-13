@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { CreateChatComponent } from '../create-chat/create-chat.component';
 import { ChatService } from '../../../../shared/services/chat/chat.service';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-chats',
@@ -10,19 +11,20 @@ import { ChatService } from '../../../../shared/services/chat/chat.service';
   styleUrls: ['./chats-page.component.scss'],
 })
 export class ChatsPageComponent implements OnInit {
-  constructor(public dialog: MatDialog, private chatService: ChatService) {}
+  constructor(
+    public dialog: MatDialog,
+    private chatService: ChatService,
+    private socket: Socket
+  ) {}
 
   ngOnInit(): void {
-    this.chatService.startWatch();
     this.initData();
   }
 
   private initData() {}
 
   public createChat() {
-    const dialogRef = this.dialog.open(CreateChatComponent, {
-      panelClass: 'create-chat',
-    });
+    const dialogRef = this.dialog.open(CreateChatComponent);
 
     dialogRef.afterClosed().subscribe((result) => {});
   }
