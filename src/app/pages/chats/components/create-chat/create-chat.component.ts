@@ -3,7 +3,6 @@ import { FormControl, Validators } from '@angular/forms';
 import { ChatService } from '../../../../shared/services/chat/chat.service';
 import { AuthService } from '../../../../shared/services/auth/auth.service';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Socket } from 'ngx-socket-io';
 import { Chat } from '../../../../shared/classes/chat/chat.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -17,7 +16,6 @@ export class CreateChatComponent {
     private chatService: ChatService,
     private authService: AuthService,
     private dialogRef: MatDialogRef<CreateChatComponent>,
-    private socket: Socket,
     private snackBar: MatSnackBar
   ) {}
 
@@ -42,7 +40,7 @@ export class CreateChatComponent {
             verticalPosition: 'top',
             duration: 3000,
           });
-          this.socket.emit('chat-created', chat);
+          this.chatService.emitChatCreated(chat);
         },
         error: () => {},
       });
