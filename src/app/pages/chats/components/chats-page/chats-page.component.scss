@@ -1,7 +1,7 @@
 @import "../../../../../assets/styles/app-colors";
 
 .chats {
-  &__list {
+  &__sidebar {
     height: 100vh;
     width: 25%;
     max-width: 250px;
@@ -21,6 +21,21 @@
         border: none;
         outline: none;
         border-radius: 5px;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__item {
+        width: 90%;
+        height: 40px;
+        padding: 1%;
+        border-radius: 5px;
+        background: rgba(107, 107, 107, 0.68);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
       }
     }
   }

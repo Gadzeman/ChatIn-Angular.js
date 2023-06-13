@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { CreateChatComponent } from '../create-chat/create-chat.component';
 import { ChatService } from '../../../../shared/services/chat/chat.service';
-import { Socket } from 'ngx-socket-io';
+import { Chat } from '../../../../shared/classes/chat/chat.interface';
 
 @Component({
   selector: 'app-chats',
@@ -11,7 +11,9 @@ import { Socket } from 'ngx-socket-io';
   styleUrls: ['./chats-page.component.scss'],
 })
 export class ChatsPageComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private chatService: ChatService) {}
+
+  public chats: Chat[] = [];
 
   ngOnInit(): void {
     this.initData();
