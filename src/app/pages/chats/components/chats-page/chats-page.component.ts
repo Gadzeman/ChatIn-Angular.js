@@ -11,11 +11,7 @@ import { Socket } from 'ngx-socket-io';
   styleUrls: ['./chats-page.component.scss'],
 })
 export class ChatsPageComponent implements OnInit {
-  constructor(
-    public dialog: MatDialog,
-    private chatService: ChatService,
-    private socket: Socket
-  ) {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.initData();
@@ -24,8 +20,6 @@ export class ChatsPageComponent implements OnInit {
   private initData() {}
 
   public createChat() {
-    const dialogRef = this.dialog.open(CreateChatComponent);
-
-    dialogRef.afterClosed().subscribe((result) => {});
+    this.dialog.open(CreateChatComponent);
   }
 }

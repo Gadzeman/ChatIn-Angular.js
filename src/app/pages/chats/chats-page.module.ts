@@ -10,6 +10,7 @@ import { CreateChatComponent } from './components/create-chat/create-chat.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [ChatsPageComponent, CreateChatComponent],
@@ -21,6 +22,7 @@ import { NgIf } from '@angular/common';
     MatInputModule,
     MatTooltipModule,
     MatDialogModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     NgIf,
   ],
