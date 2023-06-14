@@ -27,12 +27,22 @@ export class ChatService {
   public start() {
     if (!this.isStarted) {
       this.isStarted = true;
+
       const { userId } = this.authService.getAccessTokenPayload();
+
+      this.socket.on('connect', () => {
+        this.socket.emit('join-room', userId.toString());
+      });
+
       this.getChats(userId).subscribe((chats) => {
         this.chats = chats;
         this.$$chats.next(this.chats);
       });
-      this.onChatCreated();
+
+      this.socket.on('chat-created', (chat: Chat) => {
+        this.chats = [...this.chats, chat];
+        this.$$chats.next(this.chats);
+      });
     }
   }
 
@@ -46,12 +56,5 @@ export class ChatService {
 
   public emitChatCreated(chat: Chat) {
     this.socket.emit('chat-created', chat);
-  }
-
-  public onChatCreated() {
-    this.socket.on('chat-created', (chat: Chat) => {
-      this.chats = [...this.chats, chat];
-      this.$$chats.next(this.chats);
-    });
   }
 }
