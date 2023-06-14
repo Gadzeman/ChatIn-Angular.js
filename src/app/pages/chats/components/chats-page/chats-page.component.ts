@@ -17,9 +17,19 @@ export class ChatsPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.initData();
+
+    this.subscribeData();
   }
 
-  private initData() {}
+  private initData() {
+    this.chats = this.chatService.chats;
+  }
+
+  private subscribeData() {
+    this.chatService.$chats.subscribe((chats) => {
+      this.chats = chats;
+    });
+  }
 
   public createChat() {
     this.dialog.open(CreateChatComponent);

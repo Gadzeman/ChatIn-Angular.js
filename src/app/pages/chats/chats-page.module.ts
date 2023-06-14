@@ -9,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { CreateChatComponent } from './components/create-chat/create-chat.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
     ReactiveFormsModule,
     NgIf,
+    NgForOf,
   ],
 })
 export class ChatsPageModule {}

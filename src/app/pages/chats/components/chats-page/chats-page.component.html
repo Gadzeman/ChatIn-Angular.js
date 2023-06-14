@@ -16,8 +16,8 @@
       />
     </div>
     <div class="chats__sidebar__list">
-      <div class="chats__sidebar__list__item">
-        <span class="chats__sidebar__list__item__name">Chat name</span>
+      <div *ngFor="let chat of chats" class="chats__sidebar__list__item">
+        <span class="chats__sidebar__list__item__name">{{ chat.name }}</span>
       </div>
     </div>
   </div>

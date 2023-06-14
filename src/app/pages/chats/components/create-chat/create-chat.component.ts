@@ -31,7 +31,7 @@ export class CreateChatComponent {
     }
 
     this.chatService
-      .createChat({ name: this.chatName.value, owner: userId })
+      .createChat({ name: this.chatName.value, ownerId: userId })
       .subscribe({
         next: (chat: Chat) => {
           this.dialogRef.close();
