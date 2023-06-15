@@ -3,16 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Message } from '../../classes/chat/message.interface';
 import { environment } from '../../../../environments/environment';
+import { Socket } from 'ngx-socket-io';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MessageService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private socket: Socket) {}
 
   private BASE_URL = environment.api + 'message';
 
   public sendMessage(body: Message): Observable<Message> {
     return this.http.post<Message>(`${this.BASE_URL}`, body);
+  }
+
+  public emitMessageCreated(message: Message): void {
+    this.socket.emit('message-created', message);
   }
 }
