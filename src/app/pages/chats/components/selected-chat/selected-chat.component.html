@@ -1,12 +1,21 @@
 <div class="chat">
   <div *ngIf="chat" class="chat__wrap">
+    <div class="chat__wrap__messages"></div>
     <div class="chat__wrap__buttons">
-      <input
-        class="chat__wrap__buttons__input"
-        type="text"
-        placeholder="Type message..."
-      />
-      <button class="chat__wrap__buttons__send" mat-icon-button>
+      <form class="chat__wrap__buttons__form">
+        <input
+          class="chat__wrap__buttons__form__input"
+          type="text"
+          placeholder="Type a message..."
+          [formControl]="messageText"
+        />
+        <input type="submit" (click)="sendMessage($event)" hidden />
+      </form>
+      <button
+        class="chat__wrap__buttons__send"
+        mat-icon-button
+        (click)="sendMessage($event)"
+      >
         <mat-icon>send</mat-icon>
       </button>
     </div>
