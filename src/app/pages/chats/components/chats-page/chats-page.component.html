@@ -16,7 +16,15 @@
       />
     </div>
     <div class="chats__sidebar__list">
-      <div *ngFor="let chat of chats" class="chats__sidebar__list__item">
+      <div
+        *ngFor="let chat of chats"
+        class="chats__sidebar__list__item {{
+          selectedChat &&
+            chat.id === selectedChat.id &&
+            'chats__sidebar__list__item__selected'
+        }}"
+        (click)="selectChat(chat)"
+      >
         <span class="chats__sidebar__list__item__name">{{ chat.name }}</span>
       </div>
     </div>

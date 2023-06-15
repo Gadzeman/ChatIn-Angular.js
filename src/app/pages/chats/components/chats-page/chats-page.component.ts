@@ -14,6 +14,7 @@ export class ChatsPageComponent implements OnInit {
   constructor(public dialog: MatDialog, private chatService: ChatService) {}
 
   public chats: Chat[] = [];
+  public selectedChat: Chat;
 
   ngOnInit(): void {
     this.initData();
@@ -33,5 +34,9 @@ export class ChatsPageComponent implements OnInit {
 
   public createChat() {
     this.dialog.open(CreateChatComponent);
+  }
+
+  public selectChat(chat: Chat) {
+    this.selectedChat = chat;
   }
 }

@@ -36,10 +36,13 @@
         border-radius: 5px;
         margin-bottom: 10px;
         box-sizing: content-box;
-        background: rgba(107, 107, 107, 0.68);
+        background: rgba(68, 68, 68, 0.68);
         display: flex;
         align-items: center;
         cursor: pointer;
+        &__selected {
+          background: rgba(107, 107, 107, 0.68);
+        }
       }
     }
   }
