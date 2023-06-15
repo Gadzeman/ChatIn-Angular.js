@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SelectedChatComponent } from './components/selected-chat/selected-chat.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SelectedChatComponent } from './components/selected-chat/selected-chat.
     ReactiveFormsModule,
     NgIf,
     NgForOf,
+    MatMenuModule,
   ],
 })
 export class ChatsPageModule {}
