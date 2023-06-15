@@ -11,9 +11,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgForOf, NgIf } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SelectedChatComponent } from './components/selected-chat/selected-chat.component';
 
 @NgModule({
-  declarations: [ChatsPageComponent, CreateChatComponent],
+  declarations: [
+    ChatsPageComponent,
+    CreateChatComponent,
+    SelectedChatComponent,
+  ],
   imports: [
     ChatsPageRoutingModule,
     MatButtonModule,

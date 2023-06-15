@@ -1,0 +1,32 @@
+@import "../../../../../assets/styles/app-colors";
+
+.chat {
+  height: 100%;
+  width: 100%;
+  background: #2b2d31;
+  color: white;
+  display: flex;
+  align-items: center;
+  &__wrap {
+    height: 97%;
+    width: 100%;
+    background: $app-background;
+    margin-right: 10px;
+    border-radius: 10px;
+    &__buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__input {
+        margin-left: 10px;
+        height: 28px;
+        width: 100%;
+        background: rgba(107, 107, 107, 0.68);
+        color: white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}
