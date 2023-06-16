@@ -42,7 +42,6 @@ export class ChatsPageComponent implements OnInit {
 
     this.messageService.$messages.subscribe((messages) => {
       this.messages = messages;
-      console.log(this.messages);
     });
   }
 

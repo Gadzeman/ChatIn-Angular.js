@@ -24,6 +24,10 @@ export class MessageService {
   private readonly $$messages = new Subject<Message[]>();
   public readonly $messages = this.$$messages.asObservable();
 
+  public message: Message = null;
+  private readonly $$message = new Subject<Message>();
+  public readonly $message = this.$$message.asObservable();
+
   public start() {
     if (!this.isStarted) {
       this.isStarted = true;
@@ -36,7 +40,9 @@ export class MessageService {
       });
 
       this.socket.on('message-created', (message: Message) => {
-        this.messages = [...this.messages, message];
+        this.message = message;
+        this.$$message.next(this.message);
+        this.messages = [...this.messages, this.message];
         this.$$messages.next(this.messages);
       });
     }

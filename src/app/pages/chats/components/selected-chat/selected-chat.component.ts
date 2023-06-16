@@ -36,6 +36,7 @@ export class SelectedChatComponent implements OnChanges {
         userId,
       })
       .subscribe((message) => {
+        this.messageText.reset();
         this.messageService.emitMessageCreated(message);
       });
   }
