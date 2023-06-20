@@ -40,7 +40,6 @@ export class CreateChatComponent {
             verticalPosition: 'top',
             duration: 3000,
           });
-          this.chatService.emitChatCreated(chat);
         },
         error: () => {},
       });

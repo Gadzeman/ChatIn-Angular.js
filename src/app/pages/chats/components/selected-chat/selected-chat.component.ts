@@ -34,7 +34,6 @@ export class SelectedChatComponent implements OnChanges, OnInit {
 
   ngOnInit() {
     this.socket.on('messageCreated', (message: Message) => {
-      console.log(message);
       this.messages.push(message);
     });
   }

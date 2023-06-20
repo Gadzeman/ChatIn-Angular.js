@@ -30,17 +30,8 @@ export class ChatService {
 
       const { userId } = this.authService.getAccessTokenPayload();
 
-      this.socket.on('connect', () => {
-        this.socket.emit('join-room', userId.toString());
-      });
-
       this.getChats(userId).subscribe((chats) => {
         this.chats = chats;
-        this.$$chats.next(this.chats);
-      });
-
-      this.socket.on('chat-created', (chat: Chat) => {
-        this.chats = [...this.chats, chat];
         this.$$chats.next(this.chats);
       });
     }
@@ -52,9 +43,5 @@ export class ChatService {
 
   public createChat(body: Partial<Chat>): Observable<Chat> {
     return this.http.post<Chat>(`${this.BASE_URL}`, body);
-  }
-
-  public emitChatCreated(chat: Chat) {
-    this.socket.emit('chat-created', chat);
   }
 }
