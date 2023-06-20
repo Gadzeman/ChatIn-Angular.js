@@ -21,15 +21,26 @@
     </div>
     <div class="chat__wrap__messages" id="chat__wrap__messages">
       <div
-        class="chat__wrap__messages__message"
-        *ngFor="let message of messages"
+        class="chat__wrap__messages__message {{
+          userId &&
+            userId === message.userId &&
+            'chat__wrap__messages__message-owner'
+        }}"
+        *ngFor="let message of messages; index as i"
       >
-        <span class="chat__wrap__messages__message__user">{{
-          message.user.name
-        }}</span>
-        <span class="chat__wrap__messages__message__text">{{
-          message.text
-        }}</span>
+        <span
+          class="chat__wrap__messages__message__user"
+          *ngIf="userId && userId !== message.userId"
+          >{{ message.user.name }}</span
+        >
+        <span
+          class="chat__wrap__messages__message__text {{
+            userId &&
+              userId === message.userId &&
+              'chat__wrap__messages__message-owner__text'
+          }}"
+          >{{ message.text }}</span
+        >
       </div>
     </div>
     <div class="chat__wrap__buttons">

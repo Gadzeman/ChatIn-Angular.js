@@ -26,6 +26,8 @@ export class SelectedChatComponent implements OnChanges, OnInit {
 
   @Input() chat: Chat;
 
+  public userId: number;
+
   public messages: Message[] = [];
 
   public messageText: FormControl<string> = new FormControl('', [
@@ -33,6 +35,8 @@ export class SelectedChatComponent implements OnChanges, OnInit {
   ]);
 
   ngOnInit() {
+    this.userId = this.authService.getAccessTokenPayload().userId;
+
     this.socket.on('messageCreated', (message: Message) => {
       this.messages.push(message);
     });
