@@ -5,6 +5,7 @@ import { Message } from '../../classes/chat/message.interface';
 import { environment } from '../../../../environments/environment';
 import { Socket } from 'ngx-socket-io';
 import { AuthService } from '../auth/auth.service';
+import { Chat } from '../../classes/chat/chat.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -31,32 +32,18 @@ export class MessageService {
   public start() {
     if (!this.isStarted) {
       this.isStarted = true;
-
-      const { userId } = this.authService.getAccessTokenPayload();
-
-      this.getMessages(userId).subscribe((messages) => {
-        this.messages = messages;
-        this.$$messages.next(this.messages);
-      });
-
-      this.socket.on('message-created', (message: Message) => {
-        this.message = message;
-        this.$$message.next(this.message);
-        this.messages = [...this.messages, this.message];
-        this.$$messages.next(this.messages);
-      });
     }
   }
 
-  public getMessages(userId: number): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.BASE_URL}/${userId}`);
+  public getMessages(chatId: number): Observable<Message[]> {
+    return this.http.get<Message[]>(`${this.BASE_URL}/${chatId}`);
   }
 
   public sendMessage(body: Message): Observable<Message> {
     return this.http.post<Message>(`${this.BASE_URL}`, body);
   }
 
-  public emitMessageCreated(message: Message): void {
-    this.socket.emit('message-created', message);
+  public emitMessageCreated(message: Message, chat: Chat): void {
+    this.socket.emit('messageCreated', { message, chat });
   }
 }

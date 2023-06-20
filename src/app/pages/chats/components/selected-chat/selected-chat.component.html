@@ -19,7 +19,19 @@
         </button>
       </mat-menu>
     </div>
-    <div class="chat__wrap__messages"></div>
+    <div class="chat__wrap__messages">
+      <div
+        class="chat__wrap__messages__message"
+        *ngFor="let message of messages"
+      >
+        <span class="chat__wrap__messages__message__user">{{
+          message.user.name
+        }}</span>
+        <span class="chat__wrap__messages__message__text">{{
+          message.text
+        }}</span>
+      </div>
+    </div>
     <div class="chat__wrap__buttons">
       <form class="chat__wrap__buttons__form">
         <input
