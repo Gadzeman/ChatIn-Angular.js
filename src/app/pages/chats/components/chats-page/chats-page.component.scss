@@ -12,11 +12,12 @@
     &__buttons {
       display: flex;
       align-items: center;
+      width: 90%;
       &__add {
       }
       &__input {
         height: 22px;
-        width: 69%;
+        width: 100%;
         background: rgba(107, 107, 107, 0.68);
         color: white;
         border: none;
