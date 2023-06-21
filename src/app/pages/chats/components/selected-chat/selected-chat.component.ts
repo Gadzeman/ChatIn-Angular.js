@@ -11,6 +11,8 @@ import { AuthService } from '../../../../shared/services/auth/auth.service';
 import { MessageService } from '../../../../shared/services/message/message.service';
 import { Message } from '../../../../shared/classes/chat/message.interface';
 import { Socket } from 'ngx-socket-io';
+import { MatDialog } from '@angular/material/dialog';
+import { AddRemoveUserComponent } from '../add-remove-user/add-remove-user.component';
 
 @Component({
   templateUrl: 'selected-chat.component.html',
@@ -21,7 +23,8 @@ export class SelectedChatComponent implements OnChanges, OnInit {
   constructor(
     private authService: AuthService,
     private messageService: MessageService,
-    private socket: Socket
+    private socket: Socket,
+    public dialog: MatDialog
   ) {}
 
   @Input() chat: Chat;
@@ -64,5 +67,17 @@ export class SelectedChatComponent implements OnChanges, OnInit {
         this.messageText.reset();
         this.messageService.emitMessageCreated(message, this.chat);
       });
+  }
+
+  public addUser() {
+    this.dialog.open(AddRemoveUserComponent, {
+      data: { chat: this.chat, option: 'add' },
+    });
+  }
+
+  public removeUser() {
+    this.dialog.open(AddRemoveUserComponent, {
+      data: { chat: this.chat, option: 'remove' },
+    });
   }
 }

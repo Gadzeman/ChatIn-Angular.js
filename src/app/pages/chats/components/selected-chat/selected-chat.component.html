@@ -9,11 +9,11 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
+        <button mat-menu-item (click)="addUser()">
           <mat-icon>person_add</mat-icon>
           <span>Add user</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="removeUser()">
           <mat-icon>person_remove</mat-icon>
           <span>Remove user</span>
         </button>

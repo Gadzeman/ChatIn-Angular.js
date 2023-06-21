@@ -5,6 +5,7 @@ import { environment } from '../../../../environments/environment';
 import { Observable, Subject } from 'rxjs';
 import { Socket } from 'ngx-socket-io';
 import { AuthService } from '../auth/auth.service';
+import { User } from '../../classes/user/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,13 @@ export class ChatService {
 
   public getChats(userId: number) {
     return this.http.get<Chat[]>(`${this.BASE_URL}/${userId}`);
+  }
+
+  public getChatUsers(
+    chatId: number,
+    option: 'add' | 'remove'
+  ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.BASE_URL}/users/${chatId}/${option}`);
   }
 
   public createChat(body: Partial<Chat>): Observable<Chat> {
