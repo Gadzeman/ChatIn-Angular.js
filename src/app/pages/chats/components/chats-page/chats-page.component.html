@@ -1,21 +1,21 @@
 <div class="chats">
   <div class="chats__sidebar">
-    <div class="chats__sidebar__buttons">
-      <button
-        class="chats__sidebar__buttons__add"
-        matTooltip="Create a new chat"
-        mat-icon-button
-        (click)="createChat()"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
-      <input
-        class="chats__sidebar__buttons__input"
-        type="text"
-        placeholder="Search"
-      />
-    </div>
     <div class="chats__sidebar__list">
+      <div class="chats__sidebar__list__buttons">
+        <button
+          class="chats__sidebar__list__buttons__add"
+          matTooltip="Create a new chat"
+          mat-icon-button
+          (click)="createChat()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+        <input
+          class="chats__sidebar__list__buttons__input"
+          type="text"
+          placeholder="Search"
+        />
+      </div>
       <div
         *ngFor="let chat of chats"
         class="chats__sidebar__list__item {{
