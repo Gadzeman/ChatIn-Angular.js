@@ -21,6 +21,7 @@ export class ChatsPageComponent implements OnInit {
 
   public chats: Chat[] = [];
   public selectedChat: Chat;
+  public activeSearch: boolean = false;
 
   public messages: Message[] = [];
 
@@ -33,6 +34,13 @@ export class ChatsPageComponent implements OnInit {
   private initData() {
     this.chats = this.chatService.chats;
     this.messages = this.messageService.messages;
+    const search = document.getElementById('search');
+    search.addEventListener('focus', () => {
+      this.activeSearch = true;
+    });
+    search.addEventListener('blur', () => {
+      this.activeSearch = false;
+    });
   }
 
   private subscribeData() {

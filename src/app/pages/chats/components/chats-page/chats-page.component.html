@@ -3,7 +3,9 @@
     <div class="chats__sidebar__list">
       <div class="chats__sidebar__list__buttons">
         <button
-          class="chats__sidebar__list__buttons__add"
+          class="chats__sidebar__list__buttons__add {{
+            activeSearch ? 'chats__sidebar__list__buttons__add__hidden' : ''
+          }}"
           matTooltip="Create a new chat"
           mat-icon-button
           (click)="createChat()"
@@ -12,6 +14,7 @@
         </button>
         <input
           class="chats__sidebar__list__buttons__input"
+          id="search"
           type="text"
           placeholder="Search"
         />

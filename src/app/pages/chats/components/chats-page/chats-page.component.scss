@@ -20,7 +20,11 @@
         align-items: center;
         justify-content: space-between;
         width: 90%;
+        height: 48px;
         &__add {
+          &__hidden {
+            display: none;
+          }
         }
         &__input {
           height: 22px;
