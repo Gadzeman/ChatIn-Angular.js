@@ -12,7 +12,7 @@ import { MessageService } from '../../../../shared/services/message/message.serv
 import { Message } from '../../../../shared/classes/chat/message.interface';
 import { Socket } from 'ngx-socket-io';
 import { MatDialog } from '@angular/material/dialog';
-import { AddRemoveUserComponent } from '../add-remove-user/add-remove-user.component';
+import { UpdateChatUsersComponent } from '../add-remove-user/update-chat-users.component';
 
 @Component({
   templateUrl: 'selected-chat.component.html',
@@ -70,13 +70,13 @@ export class SelectedChatComponent implements OnChanges, OnInit {
   }
 
   public addUser() {
-    this.dialog.open(AddRemoveUserComponent, {
+    this.dialog.open(UpdateChatUsersComponent, {
       data: { chat: this.chat, option: 'add' },
     });
   }
 
   public removeUser() {
-    this.dialog.open(AddRemoveUserComponent, {
+    this.dialog.open(UpdateChatUsersComponent, {
       data: { chat: this.chat, option: 'remove' },
     });
   }

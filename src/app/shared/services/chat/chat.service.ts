@@ -52,4 +52,16 @@ export class ChatService {
   public createChat(body: Partial<Chat>): Observable<Chat> {
     return this.http.post<Chat>(`${this.BASE_URL}`, body);
   }
+
+  public updateChatUsers(
+    usersIds: number[],
+    chatId: number,
+    option: 'add' | 'remove'
+  ) {
+    return this.http.put(`${this.BASE_URL}/users`, {
+      usersIds,
+      chatId,
+      option,
+    });
+  }
 }

@@ -13,14 +13,15 @@ import { NgForOf, NgIf } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SelectedChatComponent } from './components/selected-chat/selected-chat.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { AddRemoveUserComponent } from './components/add-remove-user/add-remove-user.component';
+import { UpdateChatUsersComponent } from './components/add-remove-user/update-chat-users.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     ChatsPageComponent,
     CreateChatComponent,
     SelectedChatComponent,
-    AddRemoveUserComponent,
+    UpdateChatUsersComponent,
   ],
   imports: [
     ChatsPageRoutingModule,
@@ -35,6 +36,7 @@ import { AddRemoveUserComponent } from './components/add-remove-user/add-remove-
     NgIf,
     NgForOf,
     MatMenuModule,
+    MatCheckboxModule,
   ],
 })
 export class ChatsPageModule {}
