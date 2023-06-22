@@ -13,7 +13,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SelectedChatComponent } from './components/selected-chat/selected-chat.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { UpdateChatUsersComponent } from './components/add-remove-user/update-chat-users.component';
+import { UpdateChatUsersComponent } from './components/update-chat-users/update-chat-users.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({

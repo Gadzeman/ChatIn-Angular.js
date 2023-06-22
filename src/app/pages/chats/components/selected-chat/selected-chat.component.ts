@@ -12,7 +12,7 @@ import { MessageService } from '../../../../shared/services/message/message.serv
 import { Message } from '../../../../shared/classes/chat/message.interface';
 import { Socket } from 'ngx-socket-io';
 import { MatDialog } from '@angular/material/dialog';
-import { UpdateChatUsersComponent } from '../add-remove-user/update-chat-users.component';
+import { UpdateChatUsersComponent } from '../update-chat-users/update-chat-users.component';
 
 @Component({
   templateUrl: 'selected-chat.component.html',
